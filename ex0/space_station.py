@@ -29,18 +29,21 @@ def main() -> None:
             is_operational=True,
             notes=None
         )
+        print("Valid station created:")
+        print(f"ID: {ss_valid.station_id}")
+        print(f"Name: {ss_valid.name}")
+        print(f"Crew: {ss_valid.crew_size} people")
+        print(f"Power: {ss_valid.power_level}%")
+        print(f"Oxygen: {ss_valid.oxygen_level}%")
+        # print(f"Last maintenance: {ss_valid.last_maintenance}")
+        print(
+            f"Status: "
+            f"{'Operational' if ss_valid.is_operational else 'Nonoperational'}"
+        )
     except ValidationError as e:
         print(f"Unexpected validation error: {e}", file=sys.stderr)
-    print("Valid station created:")
-    print(f"ID: {ss_valid.station_id}")
-    print(f"Name: {ss_valid.name}")
-    print(f"Crew: {ss_valid.crew_size} people")
-    print(f"Power: {ss_valid.power_level}%")
-    print(f"Oxygen: {ss_valid.oxygen_level}%")
-    # print(f"Last maintenance: {ss_valid.last_maintenance}")
-    print(f"Status: "
-          f"{'Operational' if ss_valid.is_operational else 'Nonoperational'}")
     print()
+
     print("========================================")
     try:
         ss_invalid = SpaceStation(
